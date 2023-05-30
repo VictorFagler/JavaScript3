@@ -1,0 +1,270 @@
+.grid-collection-template {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.grid-sale-template {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.top-sellers-grid-template {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.top-post-grid-template {
+  display: grid;
+  grid-template-columns: repeat(3, 369px);
+  gap: 1rem;
+}
+
+.button {
+  border: none;
+  padding: 1.5em 3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+}
+
+.button-primary {
+  color: #fff;
+  background-color: firebrick;
+  &:hover {
+    background-color: hsl(0, 68%, 52%);
+  }
+}
+
+.button-secondary {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid;
+  margin-top: 2rem;
+  &:hover {
+    border: 1px solid #858585;
+    color: #858585;
+  }
+}
+
+.home-hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #e8e8e8;
+  padding: 2rem;
+
+  .home-hero-left {
+    p {
+      letter-spacing: 1.2px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .image-container {
+    width: 625px;
+    height: 647px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.collection-container,
+.top-sellers-container {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  padding: 3rem;
+  width: 100%;
+  margin: 0 auto;
+  h1, ul {
+    margin-bottom: 1rem;
+  }
+  h3 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
+  .collection-card,
+  .top-sellers-card {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border-bottom: 1px solid #e8e8e8;
+    .image-container {
+      width: 100%;
+      height: 295px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    p:last-of-type {
+      margin-bottom: .5rem;
+    }
+    p:nth-child(3) {
+      color: #a1a1a1;
+    }
+  }
+}
+
+.sale-background {
+  background-color: #faefef;
+  // width: 100%;
+}
+
+.sale-container {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  padding: 3rem;
+  background-color: #faefef;
+  margin: 0 auto;
+  .sale-card,
+  .sale-ad {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 369px;
+    .image-container {
+      width: 369px;
+      height: 310px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .sale-ad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background-color: #fff;
+    grid-area: 1 / 2;
+    p:first-of-type {
+      color: firebrick;
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    p:nth-child(3) {
+      font-size: 1.5rem;
+    }
+    p:nth-child(4) {
+      color: #525252;
+    }
+  }
+  .product-title {
+    padding: 1rem;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .product-info {
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem;
+   color: #a1a1a1;
+  }
+  .sale-price {
+    display: flex;
+    p:first-of-type {
+      text-decoration: line-through;
+    }
+    p:last-of-type {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.top-sellers-container {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  padding: 3rem;
+  margin: 0 auto;
+}
+
+.top-post-card {
+  p {
+    padding: .5rem 0;
+  }
+}
+
+.post-product {
+  p:first-of-type {
+    font-size: 1.5rem;
+  }
+  p:last-of-type {
+    color: #676767;
+  }
+}
+
+.post-comment {
+  display: flex;
+  p {
+    color: #a1a1a1;
+  }
+  p:first-child {
+    margin-right: 1rem;
+  }
+}
+
+.newsletter-container {
+  background-color: #e8e8e8;
+  display: grid;
+  place-items: center;
+  padding: 5rem;
+  .input-container {
+    width: 80%;
+    padding: 4rem;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+}
+
+.input-controls {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #cecece;
+  border-radius: 2rem;
+  input {
+    border: 0;
+    border-radius: 2rem;
+    outline: none;
+    padding: 0 2rem;
+    width: 80%;
+  }
+  .button-subscribe {
+    border: 0;
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 50%;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    background-color: hsl(0, 68%, 42%);
+    color: #fff;
+    &:hover {
+      background-color: hsl(0, 68%, 52%);
+    }
+  }
+}
+
+.disabled {
+  opacity: .2;
+  pointer-events: none;
+}

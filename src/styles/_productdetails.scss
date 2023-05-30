@@ -1,0 +1,207 @@
+.product-details-hero {
+    .hero-image {
+      width: 100%;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  
+  .product-details {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      max-width: 80%;
+      margin: 0 auto;
+      margin-top: 5rem;
+      margin-bottom: 2.5rem;
+  
+      .container {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .product-details-info {
+          margin-left: 80px;
+          h2{
+              margin-bottom:20px;
+          }
+          .detail-text{
+              padding-bottom: 20px;
+              border-bottom:1px solid rgb(214, 214, 214)
+          }
+        }
+    
+      .left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .image {
+        width: 501px;
+        height: 430px;
+        margin-bottom: 10px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    
+      .small-images {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+    
+      .small-images .image {
+        // width: calc((100% - 30px) / 4);
+        width: 120px;
+        height: 113px;
+        margin-right: 7px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    
+      .right {
+        text-align: right;
+      }
+      .left {
+        text-align: left;
+      }
+    
+      .right h2 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    
+      .right p {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+    
+    .reviews {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .reviews span {
+      font-size: 16px;
+      color: gold;
+      // margin-right: 10px;
+    }
+    
+    .price {
+      margin-top: 10px;
+  }
+  .star{
+      color:rgb(216, 194, 67);
+      margin-right:3px;
+  }
+    
+    .price span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+  .wishlist-button {
+      padding:1em 2.2em;
+      background: white;
+      border: 1px solid rgb(190, 188, 188);
+      margin: 15px 0px;
+      cursor:pointer;
+      &:hover{
+        color:white;
+        background: rgba(248, 19, 49, 0.829);
+      }
+  }
+  .quantity-button{
+      padding: .8em 1.5em;
+      background:none;
+      border: .5px solid rgb(189, 186, 186);
+      margin: 1em 0em;
+      font-size: 16px;
+      // font-weight: bolder;
+      // box-shadow:  -5px 0px 5px rgba(145, 143, 143, 0.15), 5px 0px 5px rgba(148, 147, 147, 0.15);
+      cursor:pointer;
+      &:hover{
+        background: rgba(248, 19, 49, 0.829);
+        color:white;
+      }
+  }
+  .quantity-number{
+    padding: 9px 25px 12.5px 25px;
+    border-top: .5px solid gray;
+    border-bottom: .5px solid gray;
+    box-shadow: inset -5px 0px 5px rgba(145, 143, 143, 0.15), inset 5px 0px 5px rgba(148, 147, 147, 0.15);
+  }
+  .add-to-cart-button{
+    background: rgba(248, 19, 49, 0.829);
+    padding: 1em 4em;
+    margin-left: 30px;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition: box-shadow 0.2s ease-in-out; 
+    &:hover{
+    box-shadow: 0px 0px 10px rgba(248, 19, 49, 0.829); 
+    }
+    .cart{
+      margin-left: 20px;
+      margin-right: -10px;
+      transform: scale(1.5);
+    }
+  }
+  }
+  
+  .additional-info-container {
+    display: grid;
+    margin: 50px auto;
+    grid-gap: 20px;
+    max-width: 80%;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    padding-bottom: 40px;
+    margin: 0 auto;
+  
+    .button-row {
+      display: flex;
+      width: 100%;
+      
+      .tab-button {
+        text-transform: uppercase;
+        flex-basis: 25%;
+        padding:1em 2.2em;
+        background: none;
+        border: 1px solid rgb(190, 188, 188);
+        margin: 15px 0px;
+        cursor:pointer;
+        &:hover{
+          color:white;
+          background: rgba(248, 19, 49, 0.829);
+        }
+      }
+  }
+  
+    .tab-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .text-and-image {
+      display: flex;
+      margin-top: 20px;
+      p {
+        margin-right: 20px;
+      }
+      img{
+        margin-top:0px;
+      }
+    }
+  }
