@@ -1,13 +1,10 @@
 @import "navbar";
 @import "login";
-@import "registration";
 @import "home";
-@import "contact";
 @import "products";
 @import "productdetails";
-@import "shoppingcart";
 @import "loader";
-@import "checkout";
+
 
 * {
   margin: 0;
@@ -40,3 +37,15 @@ li {
   padding: 40px;
   font-size: 14px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.center h2 {
+  text-align: center;
+}
+

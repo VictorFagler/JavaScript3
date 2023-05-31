@@ -13,15 +13,17 @@ const Products = () => {
         data.map((product) => (
           <Link to={`/productdetails/${product._id}`} key={product._id}>
             <div className="productCard">
-              <img alt={product.title} src={product.imageURL} style={{ display: "block", maxWidth: "100%" }} />
-              <h2>{product.title}</h2>
+              <img alt={product.title} src={product.imageURL} style={{ display: "block", maxWidth: "80%" }} />
+              <h3>{product.name}</h3>
               <p>{product.description}</p>
               <p className="price">Price: ${product.price}</p>
             </div>
           </Link>
         ))
       ) : (
-        <p>Please login as admin to view the products.</p>
+        
+          <h2 className="center">Please login as admin to view the products.</h2>
+      
       )}
     </div>
   );

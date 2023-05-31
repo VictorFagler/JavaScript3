@@ -28,7 +28,7 @@ const Login = () => {
       const res = await axios.post('http://localhost:8080/api/user/login', formData)
       const user = res.data.user.firstName;
       setUser(user)
-      localStorage.setItem('token', JSON.stringify(res.data.token))
+      localStorage.setItem('token', (res.data.token))
       localStorage.setItem('user', JSON.stringify(user))
       navigate('/')
     } catch (error) {

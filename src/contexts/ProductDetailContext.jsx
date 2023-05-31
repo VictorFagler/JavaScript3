@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../components/loader/Loader';
 
-
 export const ProductDetailContext = createContext();
 
 const ProductDetailsProvider = ({ children }) => {
@@ -28,8 +27,16 @@ const ProductDetailsProvider = ({ children }) => {
     getProductById();
   }, [productId]);
 
+  const updateProductData = (updatedData) => {
+    setData((prevData) => ({
+      ...prevData,
+      ...updatedData
+    }));
+  };
+
   const value = {
     data,
+    updateProductData
   };
 
   return (

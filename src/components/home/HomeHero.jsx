@@ -13,9 +13,8 @@ const HomeHero = () => {
   return (
     <div className='home-hero-container'>
       <div className='home-hero-left'>
-        <p>WELCOME TO ECOMMERCE</p>
-        <h1>Exclusive mens wear</h1>
-        <Link to={`/product/`}><button className='button button-primary'>shop now</button></Link>
+        <p>CMS ECOMMERCE</p>
+        <h1>Exclusive mens wear <br/>Admin page</h1>
       </div>
       <div className='home-hero-right'>
         <div className='image-container'>

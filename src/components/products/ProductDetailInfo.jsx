@@ -5,15 +5,16 @@ import Loader from '../loader/Loader';
 import { useParams } from 'react-router-dom';
 
 const ProductDetailInfo = () => {
-  const { data } = useContext(ProductDetailContext);
+  const { data, updateProductData } = useContext(ProductDetailContext);
   const [editMode, setEditMode] = useState(false);
   const [editedData, setEditedData] = useState({
     name: data.name,
     price: data.price,
-    description: data.description
+    description: data.description,
+    imageURL: data.imageURL
   });
 
-
+  const { productId } = useParams();
 
   const handleInputChange = (e) => {
     setEditedData({
@@ -29,25 +30,24 @@ const ProductDetailInfo = () => {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem('token');
-      console.log('Token:', token); // Check if the token is retrieved correctly
 
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
-      console.log('Config:', config); // Check if the config object is correctly set
 
-      await axios.put(`http://localhost:8080/api/product/${data._id}`, editedData, config);
-      console.log('Product updated successfully'); // Check if the update is successful
+      await axios.put(`http://localhost:8080/api/product/${productId}`, editedData, config);
 
       setEditMode(false);
+
+      // Update the product data in the context
+      updateProductData(editedData);
     } catch (error) {
       console.error('Error updating product:', error);
-      console.log('Error response:', error.response); // Check the response object for more details
+      console.log('Error response:', error.response);
     }
   };
-
 
   if (!data) {
     return <Loader />;
@@ -58,30 +58,49 @@ const ProductDetailInfo = () => {
       <div className="container">
         <div className="left">
           <div className="image">
-            <img src={data.imageURL} alt={data.imageURL} />
+            {editMode ? (
+              <>
+              <h3>ImageURL:</h3>
+              <input
+                type="text"
+                name="imageURL"
+                value={editedData.imageURL}
+                onChange={handleInputChange}
+                style={{ width: '600px', height: '40px', fontSize: '16px' }}
+              />
+              </>
+            ) : (
+              <img src={data.imageURL} alt={data.imageURL} />
+            )}
           </div>
         </div>
         <div className="product-details-info left">
           {editMode ? (
             <>
+              <h3>Title:</h3>
               <input
                 type="text"
                 name="name"
                 value={editedData.name}
                 onChange={handleInputChange}
+                style={{ width: '600px', height: '40px', fontSize: '16px' }} 
               />
+              <h3>Description:</h3>
               <textarea
                 name="description"
                 value={editedData.description}
                 onChange={handleInputChange}
+                style={{ width: '600px', height: '120px', fontSize: '16px' }} 
               ></textarea>
+              <h3>Price:</h3>
               <input
                 name="price"
                 type="number"
                 value={editedData.price}
                 onChange={handleInputChange}
+                style={{ width: '600px', height: '40px', fontSize: '16px' }} 
               />
-              <button onClick={handleSave}>Save</button>
+              <button onClick={handleSave} style={{ width: '600px' }}>Save</button>
             </>
           ) : (
             <>
@@ -93,7 +112,6 @@ const ProductDetailInfo = () => {
               <button onClick={handleEdit}>Edit</button>
             </>
           )}
-          <div className="action-buttons"></div>
         </div>
       </div>
     </div>
