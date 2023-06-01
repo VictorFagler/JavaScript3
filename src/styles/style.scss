@@ -3,8 +3,6 @@
 @import "home";
 @import "products";
 @import "productdetails";
-@import "loader";
-
 
 * {
   margin: 0;
@@ -47,5 +45,9 @@ li {
 
 .center h2 {
   text-align: center;
+}
+
+.btn-delete:hover{
+background:red;
 }
 

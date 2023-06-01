@@ -10,7 +10,7 @@ const ProductHeader = () => {
 
   return (
     <div className='product-header'>
-      <h1>Press product to edit</h1>
+      <h1>Press a product to manage the product</h1>
     </div>
   );
 };

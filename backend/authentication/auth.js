@@ -4,7 +4,7 @@ require('dotenv').config()
 const secretKey = process.env.SECRET_KEY;
 
 exports.generateToken = (user) => {
-    return jwt.sign({ _id: user._id, displayName: user.displayName }, secretKey, { expiresIn: '7d' })
+    return jwt.sign({ _id: user._id, displayName: user.displayName }, secretKey, { expiresIn: '1d' })
 }
 exports.verifyToken = (req, res, next) => {
     try {
@@ -18,10 +18,3 @@ exports.verifyToken = (req, res, next) => {
         });
     }
 };
-
-
-
-// för att logga in som admin  email: mia@.com - password: mia
-// const admin = ['6434120960bc68540d2d3187']
-// test admin email: admin@mail.com pass: bytmig123
-// const admin = ['646627979885aef7baa7ea69']

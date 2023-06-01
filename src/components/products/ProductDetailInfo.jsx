@@ -2,16 +2,17 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { ProductDetailContext } from '../../contexts/ProductDetailContext';
 import Loader from '../loader/Loader';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ProductDetailInfo = () => {
+  const navigate = useNavigate();
   const { data, updateProductData } = useContext(ProductDetailContext);
   const [editMode, setEditMode] = useState(false);
   const [editedData, setEditedData] = useState({
     name: data.name,
     price: data.price,
     description: data.description,
-    imageURL: data.imageURL
+    imageURL: data.imageURL,
   });
 
   const { productId } = useParams();
@@ -19,7 +20,7 @@ const ProductDetailInfo = () => {
   const handleInputChange = (e) => {
     setEditedData({
       ...editedData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -49,6 +50,21 @@ const ProductDetailInfo = () => {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/api/product/${productId}`);
+      // Redirect or handle deletion completion as needed
+      navigate('/product');
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      console.log('Error response:', error.response);
+    }
+  };
+
+  const handleCancel = () => {
+    setEditMode(false);
+  };
+
   if (!data) {
     return <Loader />;
   }
@@ -60,14 +76,14 @@ const ProductDetailInfo = () => {
           <div className="image">
             {editMode ? (
               <>
-              <h3>ImageURL:</h3>
-              <input
-                type="text"
-                name="imageURL"
-                value={editedData.imageURL}
-                onChange={handleInputChange}
-                style={{ width: '600px', height: '40px', fontSize: '16px' }}
-              />
+                <h3>ImageURL:</h3>
+                <input
+                  type="text"
+                  name="imageURL"
+                  value={editedData.imageURL}
+                  onChange={handleInputChange}
+                // style={{ width: '600px', height: '40px', fontSize: '16px' }}
+                />
               </>
             ) : (
               <img src={data.imageURL} alt={data.imageURL} />
@@ -83,14 +99,14 @@ const ProductDetailInfo = () => {
                 name="name"
                 value={editedData.name}
                 onChange={handleInputChange}
-                style={{ width: '600px', height: '40px', fontSize: '16px' }} 
+              // style={{ width: '600px', height: '40px', fontSize: '16px' }}
               />
               <h3>Description:</h3>
               <textarea
                 name="description"
                 value={editedData.description}
                 onChange={handleInputChange}
-                style={{ width: '600px', height: '120px', fontSize: '16px' }} 
+              // style={{ width: '600px', height: '120px', fontSize: '16px' }}
               ></textarea>
               <h3>Price:</h3>
               <input
@@ -98,23 +114,29 @@ const ProductDetailInfo = () => {
                 type="number"
                 value={editedData.price}
                 onChange={handleInputChange}
-                style={{ width: '600px', height: '40px', fontSize: '16px' }} 
+              // style={{ width: '600px', height: '40px', fontSize: '16px' }}
               />
-              <button onClick={handleSave} style={{ width: '600px' }}>Save</button>
+              <button onClick={handleSave}>
+                Save
+              </button>
+              <button className='btn-delete' onClick={handleCancel}>
+                Cancel
+              </button>
             </>
           ) : (
             <>
               <h2>{data.name}</h2>
               <p className="detail-text">{data.description}</p>
               <div className="price">
-                <span>{data.price}</span>
+                <span>{data.price} $</span>
               </div>
               <button onClick={handleEdit}>Edit</button>
+              <button className='btn-delete' onClick={handleDelete}>Delete</button>
             </>
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

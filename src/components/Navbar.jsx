@@ -22,19 +22,19 @@ const Navbar = () => {
   return (
     <div className='header'>
       <div className='title-logo'>
-        <FaAdn size={35} />
+        <FaAdn size={35} / >
         <h1>ECOMMERCE</h1>
       </div>
       <div className='navigation'>
         <li>
-          <NavLink to='/'>HOME</NavLink>
+          <NavLink className={'nav-link'} to='/'>HOME</NavLink>
         </li>
         <li>
-          <NavLink to='/product'>PRODUCT</NavLink>
+          <NavLink className={'nav-link'} to='/product'>PRODUCTS</NavLink>
         </li>
         {user ? (
           <>
-            <NavLink to='/userprofile'>
+            <NavLink className={'nav-link'} to='/  '>
               <li className='text-uppercase'>{user}</li>
             </NavLink>
             <li>
@@ -43,7 +43,7 @@ const Navbar = () => {
           </>
         ) : (
           <li>
-            <NavLink to='/login'>LOGIN</NavLink>
+            <NavLink className={'nav-link'} to='/login'>LOGIN</NavLink>
           </li>
         )}
       </div>

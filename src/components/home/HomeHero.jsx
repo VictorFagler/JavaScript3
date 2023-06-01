@@ -9,12 +9,13 @@ import HeroImage2 from '../../assets/home-hero-image-2.jpg'
 
 
 const HomeHero = () => {
-  
+
   return (
     <div className='home-hero-container'>
       <div className='home-hero-left'>
         <p>CMS ECOMMERCE</p>
-        <h1>Exclusive mens wear <br/>Admin page</h1>
+        <h1>Exclusive mens wear <br />Admin page</h1>
+        <p>Login to access products from database</p>
       </div>
       <div className='home-hero-right'>
         <div className='image-container'>

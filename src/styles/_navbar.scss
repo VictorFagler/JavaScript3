@@ -1,11 +1,10 @@
 
-
-
 .header {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 1rem;
+    border-bottom: 1px solid rgba(206, 204, 204, 0.829);
 }
 
 .title-logo,
@@ -13,4 +12,10 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    &:hover{
+       color:rgb(180, 27, 27);
+    }
+}
+.nav-link:hover{
+    color:red;
 }
